@@ -2,8 +2,8 @@ import tkinter as tk
 import tkinter.ttk as ttk
 
 
-def initialize():
-    top = tk.Tk()
+def initialize(parent):
+    top = parent
     nb = ttk.Notebook(top)
     nb.grid(row=0, column=0)
     return top, nb
