@@ -12,7 +12,7 @@ class conf_importer:
     current_button_row = 0
 
     def __init__(self):
-        file_path = "./macro_click.conf"
+        file_path = "./conf/macro_click.conf"
         conf_file = open(file_path)
         self.conf_lines = conf_file.read().split()
 
