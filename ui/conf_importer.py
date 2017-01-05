@@ -1,9 +1,10 @@
 import os
 
-import gui
+from ui import gui
 
 
 class conf_importer:
+    ROOT_PATH = None
     conf_lines = ""
     current_tab = None
     current_frame = None
@@ -11,9 +12,9 @@ class conf_importer:
     current_frame_col = 0
     current_button_row = 0
 
-    def __init__(self):
-        file_path = "./conf/macro_click.conf"
-        conf_file = open(file_path)
+    def __init__(self, conf_file_path, root_path):
+        self.ROOT_PATH = root_path
+        conf_file = open(root_path + conf_file_path)
         self.conf_lines = conf_file.read().split()
 
     def create_gui(self, parent):
@@ -41,7 +42,12 @@ class conf_importer:
                                      command=lambda executable_path=s[2]: self.execute_executable(executable_path))
                 self.current_button_row += 1
 
+    def execute_executable(self, ex):
+        pass
+
+
+class conf_importer_win_local(conf_importer):
+
     def execute_executable(self, executable_path):
-        dir_path = os.path.dirname(os.path.realpath(__file__))
-        executable_path = dir_path + "\\" + executable_path
+        executable_path = self.ROOT_PATH + "\\" + executable_path
         os.system("start " + executable_path)
