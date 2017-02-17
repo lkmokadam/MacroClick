@@ -6,6 +6,6 @@ Features:
 
 1. Tool can update it self from the preconfigured share path
 
-2. Creates the UI automatically on editing the conf file located in ./data/
+2. Creates the UI automatically on editing the ./conf/macro_click.conf file 
 
 3. Supports multiple tabs to easy to manage the multiple test plans 
